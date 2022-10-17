@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/widgets/cards/intro_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -24,7 +23,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           "Welcome back 👋",
                           style: TextStyle(
@@ -41,7 +40,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Icon(
+                    const Icon(
                       Icons.account_circle,
                       color: Colors.black,
                       size: 30,
