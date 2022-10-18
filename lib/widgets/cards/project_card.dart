@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/models/project.dart';
 
 class ProjectCard extends StatelessWidget {
-  final String title;
-  final int year;
-  final String description;
-  final String imgUrl;
+  final Project project;
 
-  const ProjectCard(
-      {required this.title,
-      required this.year,
-      required this.description,
-      this.imgUrl =
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-      super.key});
+  const ProjectCard({required this.project, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +30,7 @@ class ProjectCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title,
+                project.name,
                 style: const TextStyle(fontSize: 18),
               ),
               Container(
@@ -47,7 +39,7 @@ class ProjectCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15.0)),
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  year.toString(),
+                  project.year.toString(),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.white,
@@ -62,7 +54,7 @@ class ProjectCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
                 child: Image.network(
-                  imgUrl,
+                  project.imageUrl,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -70,7 +62,7 @@ class ProjectCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            description,
+            project.description,
             maxLines: 3,
             style:
                 const TextStyle(fontSize: 14, overflow: TextOverflow.ellipsis),
