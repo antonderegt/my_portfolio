@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProjectCard extends StatelessWidget {
   final String title;
-  final String year;
+  final int year;
   final String description;
   final String imgUrl;
 
@@ -10,14 +10,17 @@ class ProjectCard extends StatelessWidget {
       {required this.title,
       required this.year,
       required this.description,
-      required this.imgUrl,
+      this.imgUrl =
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
       super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      margin: const EdgeInsets.only(top: 15.0, right: 25.0, bottom: 25.0),
       padding: const EdgeInsets.all(15.0),
+      width: MediaQuery.of(context).size.width / 1.3,
+      height: 350,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15.0),
@@ -40,12 +43,11 @@ class ProjectCard extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15.0)),
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  year,
+                  year.toString(),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.white,
@@ -54,7 +56,7 @@ class ProjectCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 10),
           Expanded(
             child: Center(
               child: ClipRRect(
@@ -66,7 +68,7 @@ class ProjectCard extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 10),
           Text(
             description,
             maxLines: 3,
