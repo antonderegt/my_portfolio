@@ -10,6 +10,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          child: const Icon(
+            Icons.share,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            print("Button pressed");
+          }),
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
